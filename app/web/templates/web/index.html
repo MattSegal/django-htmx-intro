@@ -1,0 +1,62 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+    </head>
+    <body>
+        <div class="ui very padded text container" style="padding-top: 1rem; padding-bottom: 3rem;">
+            <h1 class="ui header">Some Jane Austen</h1>
+            <p>
+                However, I recollected afterwards that if he had been prevented going, the wedding need not be put off, for Mr. Darcy might have done as well. It is because he will not give himself the trouble. My real purpose was to see _you_, and to judge, if I could, whether I might ever hope to make you love me.
+            </p>
+            <p>
+                These are the kind of little things which please her ladyship, and it is a sort of attention which I conceive myself peculiarly bound to pay. He must be an oddity, I think I cannot make him out. When they all removed to Brighton, therefore, you had no reason, I suppose, to believe them fond of each other?
+            </p>
+            <p>
+                He did not leave his name, and till the next day it was only known that a gentleman had called on business. It is a nice long walk, and Mr. Darcy has never seen the view. But--good Lord! how unlucky! There is not a bit of fish to be got to-day. We were born in the same parish, within the same park; the greatest part of our youth was passed together; inmates of the same house, sharing the same amusements, objects of the same parental care. We were always good friends; and now we are better. He knows of my being in town, I am certain, from something she said herself; and yet it would seem, by her manner of talking, as if she wanted to persuade herself that he is really partial to Miss Darcy. On the contrary, there is something pleasing about his mouth when he speaks. It is unlucky that you should not be able to see your friends before they leave the country. You are too hasty, sir You forget that I have made no answer. But I am at his disposal. If I have, I shall be the last person to confess it. That is as it happens.
+            </p>
+            <p>
+                It is often only carelessness of opinion, and sometimes an indirect boast. Only look at her. However, he wrote some verses on her, and very pretty they were. He is as fine a fellow as ever I saw. Mr. Wickham is the son of a very respectable man, who had for many years the management of all the Pemberley estates, and whose good conduct in the discharge of his trust naturally inclined my father to be of service to him; and on George Wickham, who was his godson, his kindness was therefore liberally bestowed. Her behaviour to my dear Charlotte is charming. You may imagine what I felt and how I acted. You are a very strange creature by way of a friend!--always wanting me to play and sing before anybody and everybody! If my vanity had taken a musical turn, you would have been invaluable; but as it is, I would really rather not sit down before those who must be in the habit of hearing the very best performers. I know it to be impossible. My dearest Lizzy, do but consider in what a disgraceful light it places Mr. Darcy, to be treating his father's favourite in such a manner, one whom his father had promised to provide for. Say that urgent business calls us home immediately. Indeed!
+            </p>
+            <p>
+                Let her be called down. She is almost three-and-twenty! Lord, how ashamed I should be of not being married before three-and-twenty! My aunt Phillips wants you so to get husbands, you can't think. I do not believe Mrs. Long will do any such thing. The wisest and the best of men--nay, the wisest and best of their actions--may be rendered ridiculous by a person whose first object in life is a joke. _Her_ not objecting does not justify _him_. Howsoever that may be, you are grievously to be pitied; in which opinion I am not only joined by Mrs. Collins, but likewise by Lady Catherine and her daughter, to whom I have related the affair. But my dear Elizabeth what sort of girl is Miss King? I should be sorry to think our friend mercenary. You know not what you are about. He cannot afford it. Whatever I do is done in a hurry and therefore if I should resolve to quit Netherfield, I should probably be off in five minutes. First of all, he asked Miss Lucas. If it is designedly done, they cannot be justified; but I have no idea of there being so much design in the world as some persons imagine.
+            </p>
+            <p>
+                He believed him to be imprudent and extravagant. Upon my word I begin to be of your uncle's opinion. The liberty of communication cannot be mine till it has lost all its value! I am exceedingly gratified by your converting what my friend says into a compliment on the sweetness of my temper. But it has been the study of my life to avoid those weaknesses which often expose a strong understanding to ridicule. Well, I was so frightened I did not know what to do, for my uncle was to give me away; and if we were beyond the hour, we could not be married all day. Well, much good may it do them! And so, I suppose, they often talk of having Longbourn when your father is dead. Lizzy, I _insist_ upon your staying and hearing Mr. Collins. Is not this nice? Is not this an agreeable surprise? She practises very constantly. What think you of books? I had not been long in Hertfordshire, before I saw, in common with others, that Bingley preferred your elder sister to any other young woman in the country.
+            </p>
+            <p>
+                Let Wickham be _your_ man. Stay, stay, I will go myself. If I were as rich as Mr. Darcy I should not care how proud I was. You know pretty well, I suppose, what has been done for the young people. Depend upon it, my dear, that when there are twenty, I will visit them all. Oh! he is the handsomest young man that ever was seen! What a good joke it will be! I can hardly write for laughing. But if that is the case, you must write to your mother and beg that you may stay a little longer. I never can be thankful, Mr. Bennet, for anything about the entail. Why was he to be the judge? Had you then persuaded yourself that I should? In town I believe he chiefly lived, but his studying the law was a mere pretence, and being now free from all restraint, his life was a life of idleness and dissipation.
+            </p>
+            <div class="ui segment very padded">
+                <h2 class="ui header">Subscribe for more random Jane Austen</h2>
+                <form action="{% url 'index' %}" method="post" class="ui form">
+                    {% csrf_token %}
+                    <div class="field">
+                        <label>Full Name</label>
+                        <input type="text" name="name" placeholder="Name">
+                    </div>
+                    <div class="field">
+                        <label>Email</label>
+                        <input type="text" name="email" placeholder="Email">
+                    </div>
+                    <button class="ui button" type="submit">Contact us</button>
+                    {% for message in messages %}
+                        <p style="color: green">{{ message }}</p>
+                    {% endfor %}
+                    {% for field in form %}
+                        {% for error in field.errors %}
+                            <p style="color: red">
+                                {{ field.label }}: {{ error }}
+                            </p>
+                        {% endfor %}
+                    {% endfor %}
+                    {% for error in form.non_field_errors %}
+                        <p style="color: red">
+                            Submission error: {{ error }}
+                        </p>
+                    {% endfor %}
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
