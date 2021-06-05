@@ -1,3 +1,4 @@
+{% load static %}
 <html>
     <head>
         <meta charset="utf-8">
@@ -29,34 +30,14 @@
             </p>
             <div class="ui segment very padded">
                 <h2 class="ui header">Subscribe for more random Jane Austen</h2>
-                <form action="{% url 'index' %}" method="post" class="ui form">
-                    {% csrf_token %}
-                    <div class="field">
-                        <label>Full Name</label>
-                        <input type="text" name="name" placeholder="Name">
-                    </div>
-                    <div class="field">
-                        <label>Email</label>
-                        <input type="text" name="email" placeholder="Email">
-                    </div>
-                    <button class="ui button" type="submit">Contact us</button>
-                    {% for message in messages %}
-                        <p style="color: green">{{ message }}</p>
-                    {% endfor %}
-                    {% for field in form %}
-                        {% for error in field.errors %}
-                            <p style="color: red">
-                                {{ field.label }}: {{ error }}
-                            </p>
-                        {% endfor %}
-                    {% endfor %}
-                    {% for error in form.non_field_errors %}
-                        <p style="color: red">
-                            Submission error: {{ error }}
-                        </p>
-                    {% endfor %}
-                </form>
+                {% include 'web/htmx/contact_form.html' %}
             </div>
         </div>
+        <script type="text/javascript" src="{% static 'web/scripts/htmx.min.js' %}"></script>
+        <script>
+        document.body.addEventListener('htmx:configRequest', (event) => {
+            event.detail.headers['X-CSRFToken'] = '{{ csrf_token }}';
+        })
+        </script>
     </body>
 </html>
