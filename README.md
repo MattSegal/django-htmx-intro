@@ -1,4 +1,4 @@
-# Django HTMX intro
+# Django + htmx intro
 
 This repo demonstrates how to use htmx for a simple Django form:
 
