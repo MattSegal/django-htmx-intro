@@ -5,7 +5,7 @@ This repo demonstrates how to use htmx for a simple Django form:
 - [Before adding htmx](https://github.com/MattSegal/django-htmx-intro/tree/vanilla-html-form)
 - [After adding htmx](https://github.com/MattSegal/django-htmx-intro/tree/htmx-form)
 
-This repo is a part of this [tutorial article](https://mattsegal.dev/django-htmx-intro.html).
+This repo is a part of this [tutorial video](https://www.youtube.com/watch?v=414ONE1UbCA).
 
 ## Setup
 
